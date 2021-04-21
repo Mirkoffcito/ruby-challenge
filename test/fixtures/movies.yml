@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  image_data: MyString
+  date_released: 2021-04-20
+  score: 1
+  studio: one
+
+two:
+  title: MyString
+  image_data: MyString
+  date_released: 2021-04-20
+  score: 1
+  studio: two

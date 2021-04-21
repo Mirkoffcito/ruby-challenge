@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image_data: MyString
+  age: 1
+  weight_kg: 1
+  history: MyString
+  studio: one
+
+two:
+  name: MyString
+  image_data: MyString
+  age: 1
+  weight_kg: 1
+  history: MyString
+  studio: two
