@@ -1,6 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
     validates :username, presence: true, uniqueness: {case_sensitive: false}
+    validates_length_of :username, minimum: 4, allow_blank: false
+
+    validates_length_of :password, minimum: 4
 
     #definimos éste método porque por default, knock utiliza el email para la autenticación
     #nosotros optamos por no utilizar email con nuestros usuarios, por lo cual
