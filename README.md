@@ -28,7 +28,7 @@ También tenemos un sistema de autenticación vía TOKEN jwt, utilizando la gema
 Supongamos que tenémos 100 películas pertenecientes a un estudio, y queremos obtenerlas en grupos de 10 películas. Tenemos un paginador que nos permite realizar ésto.
 Estableceremos un "limit" y un "offset". El "limit" serían la cantidad de elementos que queremos tener en cáda página, y el offset(empieza en offset=0) sería la página que queremos recuperar. Tendremos así, por ejemplo: 
 
-#### localhost:3000/api/v1/studios?limit=10&offset=0
+* #### localhost:3000/api/v1/studios?limit=10&offset=0 ####
 
 ![GET con limite 2 y offset 1](https://user-images.githubusercontent.com/81385234/115799435-dea62700-a3ae-11eb-9e9e-e5677a87e080.jpg)
 
@@ -36,7 +36,7 @@ Estableceremos un "limit" y un "offset". El "limit" serían la cantidad de eleme
 
 Supongamos ahora que queremos buscar una película en especial, y para ver sus detalles necesitamos saber su ID. No recordamos su ID pero si recordamos su nombre. Podemos hacer:
 
-#### localhost:3000/api/v1/studios/:studio_id/movies?by_name=Aladdin
+* #### localhost:3000/api/v1/studios/:studio_id/movies?by_name=Aladdin
 
 Esto nos devolvera una lista de peliculas llamadas "Aladdín", por supuesto sólo tenemos una, por lo que obtendremos su ID y buscaremos sus detalles.
 
@@ -45,31 +45,31 @@ Esto nos devolvera una lista de peliculas llamadas "Aladdín", por supuesto sól
 
 Y si queremos ordenar las películas por el orden en que fueron creadas en la base de datos? Podemos ordenarlas de manera ascendente(ASC) o descendente(DESC) de la siguiente manera:    
 
-#### localhost:3000/api/v1/studios/:studio_id/movies?order=ASC ó  localhost:3000/api/v1/studios/:studio_id/movies?order=DESC
+* #### localhost:3000/api/v1/studios/:studio_id/movies?order=ASC ó  localhost:3000/api/v1/studios/:studio_id/movies?order=DESC
 
 ![GET Movie order ASC](https://user-images.githubusercontent.com/81385234/115808863-77de3900-a3c1-11eb-884d-a91fcd8a9bca.jpg)
 
 ![GET Movie order DESC](https://user-images.githubusercontent.com/81385234/115808866-7a409300-a3c1-11eb-8a6f-39df9f35a787.jpg)
 
 
-### Bien!
+* ### Bien!
 
 Respecto a los personajes, quizás recordamos el nombre de un personaje y queremos buscarlo:
 
-#### localhost:3000/api/v1/studios/:studio_id/characters?by_name=Aladdin
+* #### localhost:3000/api/v1/studios/:studio_id/characters?by_name=Aladdin
 
 ![GET Character by_name](https://user-images.githubusercontent.com/81385234/115809020-b70c8a00-a3c1-11eb-87bd-4557e5f65b3d.jpg)
 
 
 O quizás sólo queremos ver a los personajes que pesen entre 50 y 70 kilos.
 
-#### localhost:3000/api/v1/studios/:studio_id/characters?by_weight[from]=50&by_weight[to]=70
+* #### localhost:3000/api/v1/studios/:studio_id/characters?by_weight[from]=50&by_weight[to]=70
 
 ![GET Character by_weight](https://user-images.githubusercontent.com/81385234/115809116-e7ecbf00-a3c1-11eb-980f-bae847974014.jpg)
 
 También podemos filtrar los personajes por cierto rango de edad, supongamos entre 15 y 17 años.
 
-#### localhost:3000/api/v1/studios/:studio_id/characters?by_age[from]=15&by_age[to]=17
+* #### localhost:3000/api/v1/studios/:studio_id/characters?by_age[from]=15&by_age[to]=17
 
 ![GET Character by_age](https://user-images.githubusercontent.com/81385234/115809237-1b2f4e00-a3c2-11eb-872a-8ed23c7ddef6.jpg)
 
@@ -77,9 +77,9 @@ Tenemos entonces una API muy completa, con muchas funcionalidades que podemos ac
 
 ## Versiones ##
 
-Ruby -> 2.7.2
+* Ruby -> 2.7.2
 
-Rails -> 6.1.3.1
+* Rails -> 6.1.3.1
 
 
 ## Gemas utilizadas en el desarrollo de la API ##
@@ -110,66 +110,68 @@ Nuestros enpoints serán:
 
 ### ESTUDIOS ###
 
-#### GET localhost:3000/api/v1/studios -> Nos devuelve un JSON con todos los estudios, su ID, Nombre e imágen.
+* #### GET localhost:3000/api/v1/studios -> Nos devuelve un JSON con todos los estudios, su ID, Nombre e imágen.
 
-#### POST localhost:3000/api/v1/studios -> Nos permite crear un estudio, dandole un nombre y una imágen.
+* #### POST localhost:3000/api/v1/studios -> Nos permite crear un estudio, dandole un nombre y una imágen.
 
-#### GET localhost:3000/api/v1/studios/:studio_id -> Nos devuelve un JSON con detalles acerca del estudio en cuestion. (Su nombre, imágen, lísta de películas, series y personajes que le pertenecen)
+* #### GET localhost:3000/api/v1/studios/:studio_id -> Nos devuelve un JSON con detalles acerca del estudio en cuestion. (Su nombre, imágen, lísta de películas, series y personajes que le pertenecen)
 
-#### PUT localhost:3000/api/v1/studios/:studio_id -> Nos permite MODIFICAR un estudio, ya sea su nombre o imágen.
+* #### PUT localhost:3000/api/v1/studios/:studio_id -> Nos permite MODIFICAR un estudio, ya sea su nombre o imágen.
 
-#### DELETE localhost:3000/api/v1/studios/:studio_id -> ELIMINA el estudio en cuestión. (Y todas sus películas, series y personajes.)
+* #### DELETE localhost:3000/api/v1/studios/:studio_id -> ELIMINA el estudio en cuestión. (Y todas sus películas, series y personajes.)
 
 ### PELÍCULAS ###
 
-#### GET localhost:3000/api/v1/studios/:studio_id/movies -> Nos devuelve un JSON con todas las películas de un estudio en particular (ID, título e imágen)
+* #### GET localhost:3000/api/v1/studios/:studio_id/movies -> Nos devuelve un JSON con todas las películas de un estudio en particular (ID, título e imágen)
 
-#### POST localhost:3000/api/v1/studios/:studio_id/movies -> Nos permite crear una película perteneciente a un estudio en partícular. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
+* #### POST localhost:3000/api/v1/studios/:studio_id/movies -> Nos permite crear una película perteneciente a un estudio en partícular. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
 
-#### GET localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos devuelve un JSON con detalles acerca de una película en cuestion. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
+* #### GET localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos devuelve un JSON con detalles acerca de una película en cuestion. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
 
-#### PUT localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos permite MODIFICAR una película o agregarle personajes o géneros.
+* #### PUT localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos permite MODIFICAR una película o agregarle personajes o géneros.
 
-#### DELETE localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> ELIMINA una película en cuestión.
+* #### DELETE localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> ELIMINA una película en cuestión.
 
 ### SERIES ###
 
-Los endpoints para las series es análogo al de las películas, con la diferencia de qué en lugar de tener "/movies/" Y /:movie_id/ tendremos "/seriees/" y "/:serie_id/". Además se añade un campo en partícular a la hora de crear o modificar, el campo "seasons" para indicar la cantidad de temporadas de la serie.
+* Los endpoints para las series es análogo al de las películas, con la diferencia de qué en lugar de tener "/movies/" Y /:movie_id/ tendremos "/seriees/" y "/:serie_id/". Además se añade un campo en partícular a la hora de crear o modificar, el campo "seasons" para indicar la cantidad de temporadas de la serie.
 
 ### PERSONAJES ###
 
-#### GET localhost:3000/api/v1/studios/:studio_id/characters -> Nos devuelve un JSON con todos los personajes de un estudio en particular (ID, nombre e imágen)
+* #### GET localhost:3000/api/v1/studios/:studio_id/characters -> Nos devuelve un JSON con todos los personajes de un estudio en particular (ID, nombre e imágen)
 
-#### POST localhost:3000/api/v1/studios/:studio_id/characters -> Nos permite crear un personaje perteneciente a un estudio en partícular. (Nombre, edad, peso, historia, imágen y lísta de películas y series en las que aparece)
+* #### POST localhost:3000/api/v1/studios/:studio_id/characters -> Nos permite crear un personaje perteneciente a un estudio en partícular. (Nombre, edad, peso, historia, imágen y lísta de películas y series en las que aparece)
 
-#### GET localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos devuelve un JSON con detalles acerca de un personaje en cuestion. (Nombre, edad, peso, historia y lísta de películas y series en las que aparece, y estudio al que pertenece)
+* #### GET localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos devuelve un JSON con detalles acerca de un personaje en cuestion. (Nombre, edad, peso, historia y lísta de películas y series en las que aparece, y estudio al que pertenece)
 
-#### PUT localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos permite MODIFICAR un personaje o agregarle películas o series (existentes, establece una relación entre ambos).
+* #### PUT localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos permite MODIFICAR un personaje o agregarle películas o series (existentes, establece una relación entre ambos).
 
-#### DELETE localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> ELIMINA un personaje en cuestión.
+* #### DELETE localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> ELIMINA un personaje en cuestión.
 
 ### GENEROS ###
 
-#### GET localhost:3000/api/v1/genres -> Nos devuelve un JSON con todos los generos disponibles(Nombre e ID)
+* #### GET localhost:3000/api/v1/genres -> Nos devuelve un JSON con todos los generos disponibles(Nombre e ID)
 
-#### GET localhost:3000/api/v1/genres/:genre_id -> Nos devuelve un JSON con detalles acerca de un género en partícular(nombre, id, y lista de películas y series de dicho género)
+* #### GET localhost:3000/api/v1/genres/:genre_id -> Nos devuelve un JSON con detalles acerca de un género en partícular(nombre, id, y lista de películas y series de dicho género)
 
-#### DELETE localhost:3000/api/v1/genres/:genre_id -> Nos permite ELIMINAR un género en particular.
+* #### DELETE localhost:3000/api/v1/genres/:genre_id -> Nos permite ELIMINAR un género en particular.
 
-#### POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
+* #### POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
 
 ### Autenticacion
 
-Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
+* Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
 
-POST localhost:3000/api/v1/signin -> para loguearnos(con imágen de ejemplo de un login, lo enviamos en formato RAW) ![SIGN IN Con POST para obtener TOKEN](https://user-images.githubusercontent.com/81385234/115798053-b79a2600-a3ab-11eb-830f-3a68f4ea508d.jpg) 
+* POST localhost:3000/api/v1/signin -> para loguearnos(con imágen de ejemplo de un login, lo enviamos en formato RAW) 
 
-A la hora de realizar un request a nuestra API el cual requiera de autenticación, deberemos enviar cómo Headers "Content-Type" -> "application/json" y nuestro token JWT de autorización. Authorization -> 'Bearer nuestro_token'
+![SIGN IN Con POST para obtener TOKEN](https://user-images.githubusercontent.com/81385234/115798053-b79a2600-a3ab-11eb-830f-3a68f4ea508d.jpg) 
+
+* A la hora de realizar un request a nuestra API el cual requiera de autenticación, deberemos enviar cómo Headers "Content-Type" -> "application/json" y nuestro token JWT de autorización. Authorization -> 'Bearer nuestro_token'
 ![GET estando autenticado (con bearer con token en el header)](https://user-images.githubusercontent.com/81385234/115798962-d994a800-a3ad-11eb-862c-3c8953d02328.jpg)
 
 
 A fin de evitar complejidades a la hora del testeo de la API, desactivaremos la autenticación, cada controller tendrá entre sus primeras lineas:
-#### "before_action :authenticate_user, only: [:create, :update, :destroy]" 
+* #### "before_action :authenticate_user, only: [:create, :update, :destroy]" 
 
 Ésta es la linea que se encarga de establecer la necesidad de autenticación para crear, modificar o destruír un registro. Para realizar GET no necesitamos estar autenticados.
 Para testear los endpoints de la api, lo comentaremos para desactivarlo.
