@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :genres
   post 'user_token' => 'user_token#create'
   namespace :api do
       namespace :v1 do
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
               resources :seriees
               resources :characters
           end
+          resources :genres
       end
   end
 end

@@ -1,4 +1,5 @@
 class Api::V1::SerieesController < ApplicationController
+    #before_action :authenticate_user, only: [:create, :update, :destroy]
     before_action :get_studio
     before_action :set_serie, only: [:show, :update, :destroy]
     has_scope :by_title

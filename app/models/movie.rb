@@ -11,6 +11,11 @@ class Movie < ApplicationRecord
 
   include ImageUploader::Attachment(:image)
 
-  scope :by_title, -> title {where(title: title)}
+  scope :by_title, -> title {where("title LIKE ?", "%" + title + "%")}
+
+  scope :by_genre, -> genres {    # supongamos que queremos buscar peliculas por genero aventura y fantasía (id 1 y 2)
+    genre_array = (genres.split(',')).map(&:to_i) # enviamos dichos parametros movies/?by_genre=1,2 y genre.split(',') genera un arrray
+    joins(:genres).where(genres: genre_array)  # "llama" a la tabla genres, para poder hacer un query sobre ella
+  }
 
 end
