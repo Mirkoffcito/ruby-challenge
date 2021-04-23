@@ -2,7 +2,7 @@
 
 API diseñada en ruby on rails, utilizando POSTGRESQL cómo base de datos, y Cloudinary cómo servidor para subir las imágenes.
 
-# IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá configurar su propia base de datos postgres en /config/database.yml, realizar un rails db:setup para realizar el setup de su base de datos y una migración inicial rails db:migrate.
+## IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá configurar su propia base de datos postgres en /config/database.yml, realizar un rails db:setup para realizar el setup de su base de datos y una migración inicial rails db:migrate.
 
 ## Deberán además crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary con el siguiente formato:
 
