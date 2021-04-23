@@ -6,7 +6,9 @@ IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá co
 Deberán además crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary con el siguiente formato:
 
 CLOUD_NAME=cloudname
+
 CLOUD_API_KEY='api_key'
+
 CLOUD_API_SECRET=api_secret
 
 Notese que CLOUD_NAME y CLOUD_API_SECRET no necesitan comillas (' '), mientras que CLOUD_API_KEY si las necesita.
