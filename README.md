@@ -75,8 +75,11 @@ También podemos filtrar los personajes por cierto rango de edad, supongamos ent
 Tenemos entonces una API muy completa, con muchas funcionalidades que podemos activar o desactivar a voluntad.
 
 ## Versiones ##
+
 Ruby -> 2.7.2
+
 Rails -> 6.1.3.1
+
 
 ## Gemas utilizadas en el desarrollo de la API ##
 
@@ -106,23 +109,27 @@ Nuestros enpoints serán:
 
 ### ESTUDIOS ###
 
-GET localhost:3000/api/v1/studios -> Nos devuelve un JSON con todos los estudios, su ID, Nombre e imágen.
-POST localhost:3000/api/v1/studios -> Nos permite crear un estudio, dandole un nombre y una imágen.
-GET localhost:3000/api/v1/studios/:studio_id -> Nos devuelve un JSON con detalles acerca del estudio en cuestion. (Su nombre, imágen, lísta de películas, series y personajes que le pertenecen)
-PUT localhost:3000/api/v1/studios/:studio_id -> Nos permite MODIFICAR un estudio, ya sea su nombre o imágen.
-DELETE localhost:3000/api/v1/studios/:studio_id -> ELIMINA el estudio en cuestión. (Y todas sus películas, series y personajes.)
+#### GET localhost:3000/api/v1/studios -> Nos devuelve un JSON con todos los estudios, su ID, Nombre e imágen.
+
+#### POST localhost:3000/api/v1/studios -> Nos permite crear un estudio, dandole un nombre y una imágen.
+
+#### GET localhost:3000/api/v1/studios/:studio_id -> Nos devuelve un JSON con detalles acerca del estudio en cuestion. (Su nombre, imágen, lísta de películas, series y personajes que le pertenecen)
+
+#### PUT localhost:3000/api/v1/studios/:studio_id -> Nos permite MODIFICAR un estudio, ya sea su nombre o imágen.
+
+#### DELETE localhost:3000/api/v1/studios/:studio_id -> ELIMINA el estudio en cuestión. (Y todas sus películas, series y personajes.)
 
 ### PELÍCULAS ###
 
-GET localhost:3000/api/v1/studios/:studio_id/movies -> Nos devuelve un JSON con todas las películas de un estudio en particular (ID, título e imágen)
+#### GET localhost:3000/api/v1/studios/:studio_id/movies -> Nos devuelve un JSON con todas las películas de un estudio en particular (ID, título e imágen)
 
-POST localhost:3000/api/v1/studios/:studio_id/movies -> Nos permite crear una película perteneciente a un estudio en partícular. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
+#### POST localhost:3000/api/v1/studios/:studio_id/movies -> Nos permite crear una película perteneciente a un estudio en partícular. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
 
-GET localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos devuelve un JSON con detalles acerca de una película en cuestion. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
+#### GET localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos devuelve un JSON con detalles acerca de una película en cuestion. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
 
-PUT localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos permite MODIFICAR una película o agregarle personajes o géneros.
+#### PUT localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos permite MODIFICAR una película o agregarle personajes o géneros.
 
-DELETE localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> ELIMINA una película en cuestión.
+#### DELETE localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> ELIMINA una película en cuestión.
 
 ### SERIES ###
 
@@ -130,24 +137,25 @@ Los endpoints para las series es análogo al de las películas, con la diferenci
 
 ### PERSONAJES ###
 
-GET localhost:3000/api/v1/studios/:studio_id/characters -> Nos devuelve un JSON con todos los personajes de un estudio en particular (ID, nombre e imágen)
+#### GET localhost:3000/api/v1/studios/:studio_id/characters -> Nos devuelve un JSON con todos los personajes de un estudio en particular (ID, nombre e imágen)
 
-POST localhost:3000/api/v1/studios/:studio_id/characters -> Nos permite crear un personaje perteneciente a un estudio en partícular. (Nombre, edad, peso, historia, imágen y lísta de películas y series en las que aparece)
+#### POST localhost:3000/api/v1/studios/:studio_id/characters -> Nos permite crear un personaje perteneciente a un estudio en partícular. (Nombre, edad, peso, historia, imágen y lísta de películas y series en las que aparece)
 
-GET localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos devuelve un JSON con detalles acerca de un personaje en cuestion. (Nombre, edad, peso, historia y lísta de películas y series en las que aparece, y estudio al que pertenece)
+#### GET localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos devuelve un JSON con detalles acerca de un personaje en cuestion. (Nombre, edad, peso, historia y lísta de películas y series en las que aparece, y estudio al que pertenece)
 
-PUT localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos permite MODIFICAR un personaje o agregarle películas o series (existentes, establece una relación entre ambos).
+#### PUT localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos permite MODIFICAR un personaje o agregarle películas o series (existentes, establece una relación entre ambos).
 
-DELETE localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> ELIMINA un personaje en cuestión.
+#### DELETE localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> ELIMINA un personaje en cuestión.
 
 ### GENEROS ###
-GET localhost:3000/api/v1/genres -> Nos devuelve un JSON con todos los generos disponibles(Nombre e ID)
 
-GET localhost:3000/api/v1/genres/:genre_id -> Nos devuelve un JSON con detalles acerca de un género en partícular(nombre, id, y lista de películas y series de dicho género)
+#### GET localhost:3000/api/v1/genres -> Nos devuelve un JSON con todos los generos disponibles(Nombre e ID)
 
-DELETE localhost:3000/api/v1/genres/:genre_id -> Nos permite ELIMINAR un género en particular.
+#### GET localhost:3000/api/v1/genres/:genre_id -> Nos devuelve un JSON con detalles acerca de un género en partícular(nombre, id, y lista de películas y series de dicho género)
 
-POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
+#### DELETE localhost:3000/api/v1/genres/:genre_id -> Nos permite ELIMINAR un género en particular.
+
+#### POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
 
 ### Autenticacion
 
