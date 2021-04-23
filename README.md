@@ -12,7 +12,7 @@ CLOUD_API_SECRET=api_secret
 Notese que CLOUD_NAME y CLOUD_API_SECRET no necesitan comillas (' '), mientras que CLOUD_API_KEY si las necesita.
 
 # Resumen de sus funciones:
-Ésta api nos permite Crear, actualizar, mostrar y eliminar información respecto a Estudios cinematograficos (Disney, Pixar, MCU, DCU, etc)
+Ésta api nos permite Crear, actualizar, mostrar y eliminar información respecto a Estudios cinematograficos (Disney, Pixar, MCU, DCU, etc).
 Cada estudio tendrá una cantidad de películas, series, y personajes que le pertenecen. Análogamente cada Película, Serie o Personaje pertenecera a un estudio determinado (Relación one-to-many).
 Además, cada Película o Serie puede tener uno o más personajes, y cada personaje puede pertenecer a una o más películas y/o series. Para ésto utilicé una relación many-to-many (HABTM).
 También tendremos géneros. Cada género podrá tener una o más películas o series, y cáda serie o película podrá tener uno o más géneros.
@@ -61,9 +61,13 @@ DELETE localhost:3000/api/v1/studios/:studio_id -> ELIMINA el estudio en cuesti�
 ### PELÍCULAS ###
 
 GET localhost:3000/api/v1/studios/:studio_id/movies -> Nos devuelve un JSON con todas las películas de un estudio en particular (ID, título e imágen)
+
 POST localhost:3000/api/v1/studios/:studio_id/movies -> Nos permite crear una película perteneciente a un estudio en partícular. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
+
 GET localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos devuelve un JSON con detalles acerca de una película en cuestion. (Titulo, fecha de estreno, score, imágen, sus personajes y sus géneros)
+
 PUT localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> Nos permite MODIFICAR una película o agregarle personajes o géneros.
+
 DELETE localhost:3000/api/v1/studios/:studio_id/movies/:movie_id -> ELIMINA una película en cuestión.
 
 ### SERIES ###
@@ -73,16 +77,24 @@ Los endpoints para las series es análogo al de las películas, con la diferenci
 ### PERSONAJES ###
 
 GET localhost:3000/api/v1/studios/:studio_id/characters -> Nos devuelve un JSON con todos los personajes de un estudio en particular (ID, nombre e imágen)
+
 POST localhost:3000/api/v1/studios/:studio_id/characters -> Nos permite crear un personaje perteneciente a un estudio en partícular. (Nombre, edad, peso, historia, imágen y lísta de películas y series en las que aparece)
+
 GET localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos devuelve un JSON con detalles acerca de un personaje en cuestion. (Nombre, edad, peso, historia y lísta de películas y series en las que aparece, y estudio al que pertenece)
+
 PUT localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> Nos permite MODIFICAR un personaje o agregarle películas o series (existentes, establece una relación entre ambos).
+
 DELETE localhost:3000/api/v1/studios/:studio_id/characters/:character_id -> ELIMINA un personaje en cuestión.
 
 ### GENEROS ###
 GET localhost:3000/api/v1/genres -> Nos devuelve un JSON con todos los generos disponibles(Nombre e ID)
+
 GET localhost:3000/api/v1/genres/:genre_id -> Nos devuelve un JSON con detalles acerca de un género en partícular(nombre, id, y lista de películas y series de dicho género)
+
 DELETE localhost:3000/api/v1/genres/:genre_id -> Nos permite ELIMINAR un género en particular.
+
 POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
+
 
 
 Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
