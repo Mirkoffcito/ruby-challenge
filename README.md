@@ -37,7 +37,34 @@ Supongamos ahora que queremos buscar una película en especial, y para ver sus d
 localhost:3000/api/v1/studios/:studio_id/movies?by_name=Aladdin
 
 Esto nos devolvera una lista de peliculas llamadas "Aladdín", por supuesto sólo tenemos una, por lo que obtendremos su ID y buscaremos sus detalles.
-![GET con search_by_name](https://user-images.githubusercontent.com/81385234/115799443-e1a11780-a3ae-11eb-8cb0-e1bc8a190a1e.jpg)
+![GET Character by_name](https://user-images.githubusercontent.com/81385234/115809327-41ed8480-a3c2-11eb-8109-dbaff042d223.jpg)
+
+
+Y si queremos ordenar las películas por el orden en que fueron creadas en la base de datos? Podemos ordenarlas de manera ascendente(ASC) o descendente(DESC) de la siguiente manera:    localhost:3000/api/v1/studios/:studio_id/movies?order=ASC ó  localhost:3000/api/v1/studios/:studio_id/movies?order=DESC
+
+![GET Movie order ASC](https://user-images.githubusercontent.com/81385234/115808863-77de3900-a3c1-11eb-884d-a91fcd8a9bca.jpg)
+
+![GET Movie order DESC](https://user-images.githubusercontent.com/81385234/115808866-7a409300-a3c1-11eb-8a6f-39df9f35a787.jpg)
+
+
+### Bien!
+
+Respecto a los personajes, quizás recordamos el nombre de un personaje y queremos buscarlo:
+
+localhost:3000/api/v1/studios/:studio_id/characters?by_name=Aladdin
+![GET Character by_name](https://user-images.githubusercontent.com/81385234/115809020-b70c8a00-a3c1-11eb-87bd-4557e5f65b3d.jpg)
+
+
+O quizás sólo queremos ver a los personajes que pesen entre 50 y 70 kilos.
+
+localhost:3000/api/v1/studios/:studio_id/characters?by_weight[from]=50&by_weight[to]=70
+![GET Character by_weight](https://user-images.githubusercontent.com/81385234/115809116-e7ecbf00-a3c1-11eb-980f-bae847974014.jpg)
+
+También podemos filtrar los personajes por cierto rango de edad, supongamos entre 15 y 17 años.
+
+localhost:3000/api/v1/studios/:studio_id/characters?by_age[from]=15&by_age[to]=17
+![GET Character by_age](https://user-images.githubusercontent.com/81385234/115809237-1b2f4e00-a3c2-11eb-872a-8ed23c7ddef6.jpg)
+
 
 
 
