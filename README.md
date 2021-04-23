@@ -177,4 +177,19 @@ A fin de evitar complejidades a la hora del testeo de la API, desactivaremos la 
 Para testear los endpoints de la api, lo comentaremos para desactivarlo.
 
 
+* Adjunto también imagenes de cómo se verían los detalles de un estudio, una película y un personaje.
+
+* ### localhost:3000/api/v1/studios/1
+
+![GET Detalles de estudio](https://user-images.githubusercontent.com/81385234/115895799-31c0be00-a431-11eb-8ed9-cf23a17cb7dc.jpg)
+
+* ### localhost:3000/api/v1/studios/1/movies/1
+
+![GET Detalles de Película](https://user-images.githubusercontent.com/81385234/115895840-3ab18f80-a431-11eb-91ec-9d08fa42237d.jpg)
+
+* ### localhost:3000/api/v1/studios/1/characters/1
+
+![GET Detalles character](https://user-images.githubusercontent.com/81385234/115895873-41d89d80-a431-11eb-924b-e59ddcf62a1e.jpg)
+
+
 
