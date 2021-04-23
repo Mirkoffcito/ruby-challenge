@@ -102,6 +102,8 @@ Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos 
 POST localhost:3000/api/v1/signin -> para loguearnos(con imágen de ejemplo de un login, lo enviamos en formato RAW) ![SIGN IN Con POST para obtener TOKEN](https://user-images.githubusercontent.com/81385234/115798053-b79a2600-a3ab-11eb-830f-3a68f4ea508d.jpg) 
 
 A la hora de realizar un request a nuestra API el cual requiera de autenticación, deberemos enviar cómo Headers "Content-Type" -> "application/json" y nuestro token JWT de autorización. Authorization -> 'Bearer nuestro_token'
+![GET estando autenticado (con bearer con token en el header)](https://user-images.githubusercontent.com/81385234/115798962-d994a800-a3ad-11eb-862c-3c8953d02328.jpg)
+
 
 A fin de evitar complejidades a la hora del testeo de la API, desactivaremos la autenticación, cada controller tendrá entre sus primeras lineas:
 #### "before_action :authenticate_user, only: [:create, :update, :destroy]" 
