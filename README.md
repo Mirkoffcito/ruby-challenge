@@ -22,6 +22,23 @@ De la misma manera, podemos tenér en un principio  una película o serie SIN pe
 
 También tenemos un sistema de autenticación vía TOKEN jwt, utilizando la gema KNOCK.
 
+Supongamos que tenémos 100 películas pertenecientes a un estudio, y queremos obtenerlas en grupos de 10 películas. Tenemos un paginador que nos permite realizar ésto.
+Estableceremos un "limit" y un "offset". El "limit" serían la cantidad de elementos que queremos tener en cáda página, y el offset(empieza en offset=0) sería la página que queremos recuperar. Tendremos así, por ejemplo: 
+
+localhost:3000/api/v1/studios?limit=10&offset=0
+![GET con limite 2 y offset 1](https://user-images.githubusercontent.com/81385234/115799435-dea62700-a3ae-11eb-9e9e-e5677a87e080.jpg)
+
+
+
+Supongamos ahora que queremos buscar una película en especial, y para ver sus detalles necesitamos saber su ID. No recordamos su ID pero si recordamos su nombre. Podemos hacer:
+
+localhost:3000/api/v1/studios/:studio_id/movies?by_name=Aladdin
+
+Esto nos devolvera una lista de peliculas llamadas "Aladdín", por supuesto sólo tenemos una, por lo que obtendremos su ID y buscaremos sus detalles.
+![GET con search_by_name](https://user-images.githubusercontent.com/81385234/115799443-e1a11780-a3ae-11eb-8cb0-e1bc8a190a1e.jpg)
+
+
+
 ## Versiones ##
 Ruby -> 2.7.2
 Rails -> 6.1.3.1
