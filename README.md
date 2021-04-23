@@ -27,20 +27,24 @@ También tenemos un sistema de autenticación vía TOKEN jwt, utilizando la gema
 Supongamos que tenémos 100 películas pertenecientes a un estudio, y queremos obtenerlas en grupos de 10 películas. Tenemos un paginador que nos permite realizar ésto.
 Estableceremos un "limit" y un "offset". El "limit" serían la cantidad de elementos que queremos tener en cáda página, y el offset(empieza en offset=0) sería la página que queremos recuperar. Tendremos así, por ejemplo: 
 
-localhost:3000/api/v1/studios?limit=10&offset=0
+#### localhost:3000/api/v1/studios?limit=10&offset=0
+
 ![GET con limite 2 y offset 1](https://user-images.githubusercontent.com/81385234/115799435-dea62700-a3ae-11eb-9e9e-e5677a87e080.jpg)
 
 
 
 Supongamos ahora que queremos buscar una película en especial, y para ver sus detalles necesitamos saber su ID. No recordamos su ID pero si recordamos su nombre. Podemos hacer:
 
-localhost:3000/api/v1/studios/:studio_id/movies?by_name=Aladdin
+#### localhost:3000/api/v1/studios/:studio_id/movies?by_name=Aladdin
 
 Esto nos devolvera una lista de peliculas llamadas "Aladdín", por supuesto sólo tenemos una, por lo que obtendremos su ID y buscaremos sus detalles.
+
 ![GET Character by_name](https://user-images.githubusercontent.com/81385234/115809327-41ed8480-a3c2-11eb-8109-dbaff042d223.jpg)
 
 
-Y si queremos ordenar las películas por el orden en que fueron creadas en la base de datos? Podemos ordenarlas de manera ascendente(ASC) o descendente(DESC) de la siguiente manera:    localhost:3000/api/v1/studios/:studio_id/movies?order=ASC ó  localhost:3000/api/v1/studios/:studio_id/movies?order=DESC
+Y si queremos ordenar las películas por el orden en que fueron creadas en la base de datos? Podemos ordenarlas de manera ascendente(ASC) o descendente(DESC) de la siguiente manera:    
+
+#### localhost:3000/api/v1/studios/:studio_id/movies?order=ASC ó  localhost:3000/api/v1/studios/:studio_id/movies?order=DESC
 
 ![GET Movie order ASC](https://user-images.githubusercontent.com/81385234/115808863-77de3900-a3c1-11eb-884d-a91fcd8a9bca.jpg)
 
@@ -51,22 +55,24 @@ Y si queremos ordenar las películas por el orden en que fueron creadas en la ba
 
 Respecto a los personajes, quizás recordamos el nombre de un personaje y queremos buscarlo:
 
-localhost:3000/api/v1/studios/:studio_id/characters?by_name=Aladdin
+#### localhost:3000/api/v1/studios/:studio_id/characters?by_name=Aladdin
+
 ![GET Character by_name](https://user-images.githubusercontent.com/81385234/115809020-b70c8a00-a3c1-11eb-87bd-4557e5f65b3d.jpg)
 
 
 O quizás sólo queremos ver a los personajes que pesen entre 50 y 70 kilos.
 
-localhost:3000/api/v1/studios/:studio_id/characters?by_weight[from]=50&by_weight[to]=70
+#### localhost:3000/api/v1/studios/:studio_id/characters?by_weight[from]=50&by_weight[to]=70
+
 ![GET Character by_weight](https://user-images.githubusercontent.com/81385234/115809116-e7ecbf00-a3c1-11eb-980f-bae847974014.jpg)
 
 También podemos filtrar los personajes por cierto rango de edad, supongamos entre 15 y 17 años.
 
-localhost:3000/api/v1/studios/:studio_id/characters?by_age[from]=15&by_age[to]=17
+#### localhost:3000/api/v1/studios/:studio_id/characters?by_age[from]=15&by_age[to]=17
+
 ![GET Character by_age](https://user-images.githubusercontent.com/81385234/115809237-1b2f4e00-a3c2-11eb-872a-8ed23c7ddef6.jpg)
 
-
-
+Tenemos entonces una API muy completa, con muchas funcionalidades que podemos activar o desactivar a voluntad.
 
 ## Versiones ##
 Ruby -> 2.7.2
@@ -91,6 +97,8 @@ Rails -> 6.1.3.1
 #### gem #### "bcrypt" -> Necesaria para guardar la contraseña de los usuarios encriptada, a fín de no comprometer la información
 
 #### gem #### "knock" -> Utilizada para generar los Tokens de autenticación
+
+
 
 ## ENDPOINTS ##
 
@@ -141,7 +149,7 @@ DELETE localhost:3000/api/v1/genres/:genre_id -> Nos permite ELIMINAR un género
 
 POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
 
-
+### Autenticacion
 
 Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
 
