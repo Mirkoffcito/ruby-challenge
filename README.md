@@ -12,7 +12,7 @@ API diseñada en ruby on rails, utilizando POSTGRESQL cómo base de datos, y Clo
 
 ### CLOUD_API_SECRET=api_secret
 
-Notese que CLOUD_NAME y CLOUD_API_SECRET no necesitan comillas (' '), mientras que CLOUD_API_KEY si las necesita.
+* Notese que CLOUD_NAME y CLOUD_API_SECRET no necesitan comillas (' '), mientras que CLOUD_API_KEY si las necesita.
 
 # Resumen de sus funciones:
 Ésta api nos permite Crear, actualizar, mostrar y eliminar información respecto a Estudios cinematograficos (Disney, Pixar, MCU, DCU, etc).
