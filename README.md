@@ -20,10 +20,13 @@ Cada estudio tendrá una cantidad de películas, series, y personajes que le per
 Además, cada Película o Serie puede tener uno o más personajes, y cada personaje puede pertenecer a una o más películas y/o series. Para ésto utilicé una relación many-to-many (HABTM).
 También tendremos géneros. Cada género podrá tener una o más películas o series, y cáda serie o película podrá tener uno o más géneros.
 
+![UML](https://user-images.githubusercontent.com/81385234/115975202-25c02380-a539-11eb-8097-44a0ab43190d.jpg)
+
+
 Así, por ejemplo, podemos tener un personaje que pertenezca a un estudio, digamos por ejemplo el MCU, pero que no tenga películas o series aún, por ejemplo Spider-Woman, y luego agregarle películas o series.
 De la misma manera, podemos tenér en un principio  una película o serie SIN personajes o géneros, luego crear los personajes, y añadirlos a la película vía PUT. (modificar)
 
-También tenemos un sistema de autenticación vía TOKEN jwt, utilizando la gema KNOCK.
+También tenemos un sistema de autenticación vía TOKEN jwt, utilizando la gema KNOCK. Podra crearse un usuario con los campos usuario y contraseña, para ingresar y obtener su token.
 
 Supongamos que tenémos 100 películas pertenecientes a un estudio, y queremos obtenerlas en grupos de 10 películas. Tenemos un paginador que nos permite realizar ésto.
 Estableceremos un "limit" y un "offset". El "limit" serían la cantidad de elementos que queremos tener en cáda página, y el offset(empieza en offset=0) sería la página que queremos recuperar. Tendremos así, por ejemplo: 
