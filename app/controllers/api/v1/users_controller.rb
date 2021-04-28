@@ -3,18 +3,24 @@ class Api::V1::UsersController < ApplicationController
     #excepto para crear un nuevo usuario
     #Para estar autenticado, deberemos pasar cómo parametro el token jwt, mediante un bearer.
     before_action :authenticate_user, except: [:create]
-    before_action :set_user, only: [:show, :update, :destroy]
+    before_action :set_user, only: [:show, :destroy] # sólo ejecuta set_user antes de realizar show o destroy
   
     # GET /users
     def index
-      @users = User.all
-  
-      render json: @users
+      if current_user # para acceder acá, debo haberle pasado el token vía header, con Content type -> app/json y Authorization->Bearer token
+        render json: UserRepresenter.new(current_user).as_json
+      else
+        render json: "NO SE ENCUENTRA AUTENTICADO"
+      end
     end
   
     # GET /users/1
     def show
-      render json: @user
+      if current_user.id==@user.id # para acceder acá, debo haberle pasado el token vía header, con Content type -> app/json y Authorization->Bearer token
+        render json: UserRepresenter.new(current_user).as_json
+      else
+        render json: "NO SE ENCUENTRA AUTENTICADO"
+      end
     end
   
     # POST /users
@@ -28,18 +34,13 @@ class Api::V1::UsersController < ApplicationController
       end
     end
   
-    # PATCH/PUT /users/1
-    def update
-      if @user.update(user_params)
-        render json: @user
+    # DELETE /users/1
+    def destroy
+      if @user.id==current_user.id
+        @user.destroy
       else
         render json: @user.errors, status: :unprocessable_entity
       end
-    end
-  
-    # DELETE /users/1
-    def destroy
-      @user.destroy
     end
   
     private
