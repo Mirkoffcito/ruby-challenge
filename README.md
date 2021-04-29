@@ -38,13 +38,33 @@ De la misma manera, podemos tenér en un principio  una película o serie SIN pe
 
 También tenemos un sistema de autenticación vía TOKEN jwt, utilizando la gema KNOCK. Podra crearse un usuario con los campos usuario y contraseña, para ingresar y obtener su token.
 
+## Autenticación
+Dicho ésto, lo primero que debemos hacer para utilizar la API, es crearnos una cuenta vía POST request:
+
+* ### localhost:3000/api/v1/auth/signup (parametros username y password)
+
+![POST EXITOSO Auth localhost](https://user-images.githubusercontent.com/81385234/116612484-fd0ba580-a90d-11eb-8410-08521cce9584.jpg)
+
+Una vez creada nuestra cuenta, deberemos proceder a realizar un LOGIN, para obtener nuestro TOKEN.
+
+* ### localhost:3000/api/v1/auth/signin (Debemos establecer en nuestro header el Content-type -> application/json y enviar las credenciales en formato raw cómo se vé en la foto)
+
+![POST EXITOSO login localhost](https://user-images.githubusercontent.com/81385234/116612785-52e04d80-a90e-11eb-9287-150c9d76e57f.jpg)
+
+Listo! ya tenemos nuestro TOKEN de acceso. Copiaremos el código, nos dirigiremos a headers devuelta, y agregaremos el campo ' Authorization -> Bearer <Aquí pegamos el token> cómo se vé en la imágen.
+
+![bearer token](https://user-images.githubusercontent.com/81385234/116613138-b66a7b00-a90e-11eb-841e-5f831c019631.jpg)
+
+Con el token en nuestro header ya tenemos todo configurado para acceder a la totalidad de los endpoints y realizar requests POST, GET, UPDATE y DELETE en nuestra API.
+
+### Filtros y funciones
+
 Supongamos que tenémos 100 películas pertenecientes a un estudio, y queremos obtenerlas en grupos de 10 películas. Tenemos un paginador que nos permite realizar ésto.
 Estableceremos un "limit" y un "offset". El "limit" serían la cantidad de elementos que queremos tener en cáda página, y el offset(empieza en offset=0) sería la página que queremos recuperar. Tendremos así, por ejemplo: 
 
 * #### localhost:3000/api/v1/studios?limit=10&offset=0 ####
 
 ![GET con limite 2 y offset 1](https://user-images.githubusercontent.com/81385234/115799435-dea62700-a3ae-11eb-9e9e-e5677a87e080.jpg)
-
 
 
 Supongamos ahora que queremos buscar una película en especial, y para ver sus detalles necesitamos saber su ID. No recordamos su ID pero si recordamos su nombre. Podemos hacer:
@@ -171,31 +191,8 @@ Nuestros enpoints serán:
 
 * #### POST localhost:3000/api/v1/genres -> Nos permite CREAR un nuevo género. (Nombre)
 
-### Autenticacion
 
-* Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
-
-* ### POST localhost:3000/api/v1/auth/signin -> para loguearnos y obtener nuestro TOKEN(con imágen de ejemplo de un login, lo enviamos en formato RAW) 
-
-![SIGN IN Con POST para obtener TOKEN](https://user-images.githubusercontent.com/81385234/115798053-b79a2600-a3ab-11eb-830f-3a68f4ea508d.jpg) 
-
-* ### POST localhost:3000/api/v1/auth/signup -> para registrarnos para poder después loguearnos
-
-![POST EXITOSO Auth localhost](https://user-images.githubusercontent.com/81385234/116563088-15fa6380-a8da-11eb-85bf-81f63d2c7e6c.jpg)
-
-
-* A la hora de realizar un request a nuestra API el cual requiera de autenticación, deberemos enviar cómo Headers "Content-Type" -> "application/json" y nuestro token JWT de autorización. Authorization -> 'Bearer nuestro_token'
-![GET estando autenticado (con bearer con token en el header)](https://user-images.githubusercontent.com/81385234/115798962-d994a800-a3ad-11eb-862c-3c8953d02328.jpg)
-
-
-A fin de evitar complejidades a la hora del testeo de la API, desactivaremos la autenticación, cada controller tendrá entre sus primeras lineas:
-* #### "before_action :authenticate_user, only: [:create, :update, :destroy]" 
-
-Ésta es la linea que se encarga de establecer la necesidad de autenticación para crear, modificar o destruír un registro. Para realizar GET no necesitamos estar autenticados.
-Para testear los endpoints de la api, lo comentaremos para desactivarlo.
-
-
-* Adjunto también imagenes de cómo se verían los detalles de un estudio, una película y un personaje.
+* ## Adjunto también imagenes de cómo se verían los detalles de un estudio, una película y un personaje.
 
 * ### localhost:3000/api/v1/studios/1
 
