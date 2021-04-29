@@ -12,6 +12,12 @@ class GenreRepresenter
                 genre.movies.map do |movie|
                     movie.title
                 end
+            end,
+            genre_series:
+            begin
+                genre.seriees.map do |serie|
+                    serie.title
+                end
             end
         }
     end

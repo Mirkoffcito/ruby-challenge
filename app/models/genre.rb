@@ -4,5 +4,5 @@ class Genre < ApplicationRecord
     
     validates :name, presence: true, uniqueness: true
 
-    scope :by_name, -> name {where(name: name)}
+    scope :by_name, -> name {where("name LIKE ?", "%" + name + "%")}
 end
