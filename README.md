@@ -6,9 +6,9 @@ API diseñada en ruby on rails, utilizando POSTGRESQL cómo base de datos, y Clo
 
 * ### https://ancient-eyrie-25380.herokuapp.com/api/v1/studios  O  https://ancient-eyrie-25380.herokuapp.com/api/v1/studios/1/movies
 
-## IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá configurar su propia base de datos postgres en /config/database.yml, realizar un rails db:setup para realizar el setup de su base de datos y una migración inicial rails db:migrate.
+## IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá configurar su propia base de datos postgres y cuenta en cloudinary.
 
-## Deberán además crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary y el NOMBRE y USUARIO de postgres con el siguiente formato(el nombre de usuario de postgres por default es " postgres " sin las comillas):
+## Para esto eberán crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary y el NOMBRE y USUARIO de postgres con el siguiente formato(el nombre de usuario de postgres por default es " postgres " sin las comillas):
 
 ![env formato](https://user-images.githubusercontent.com/81385234/116565085-e8161e80-a8db-11eb-96a8-34bb139e3d9c.jpg)
 
