@@ -171,11 +171,11 @@ Nuestros enpoints serán:
 
 * Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
 
-* POST localhost:3000/api/v1/auth/signin -> para loguearnos y obtener nuestro TOKEN(con imágen de ejemplo de un login, lo enviamos en formato RAW) 
+* ### POST localhost:3000/api/v1/auth/signin -> para loguearnos y obtener nuestro TOKEN(con imágen de ejemplo de un login, lo enviamos en formato RAW) 
 
 ![SIGN IN Con POST para obtener TOKEN](https://user-images.githubusercontent.com/81385234/115798053-b79a2600-a3ab-11eb-830f-3a68f4ea508d.jpg) 
 
-* POST localhost:3000/api/v1/auth/signup -> para registrarnos para poder después loguearnos
+* ### POST localhost:3000/api/v1/auth/signup -> para registrarnos para poder después loguearnos
 
 ![POST EXITOSO Auth localhost](https://user-images.githubusercontent.com/81385234/116563088-15fa6380-a8da-11eb-85bf-81f63d2c7e6c.jpg)
 
