@@ -4,13 +4,19 @@ API diseñada en ruby on rails, utilizando POSTGRESQL cómo base de datos, y Clo
 
 ## IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá configurar su propia base de datos postgres en /config/database.yml, realizar un rails db:setup para realizar el setup de su base de datos y una migración inicial rails db:migrate.
 
-## Deberán además crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary con el siguiente formato:
+## Deberán además crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary y el NOMBRE y USUARIO de postgres con el siguiente formato(el nombre de usuario de postgres por default es " postgres " sin las comillas):
 
-### CLOUD_NAME=cloudname
+![env formato](https://user-images.githubusercontent.com/81385234/116565085-e8161e80-a8db-11eb-96a8-34bb139e3d9c.jpg)
 
-### CLOUD_API_KEY='api_key'
+Una vez guardado esté archivo bastará para realizar un setup " rails db:setup " y " rails db:migrate " y la base de datos estará lista.
 
-### CLOUD_API_SECRET=api_secret
+Para obtener las credenciales de cloudinary necesarias en el archivo .env, deberán crearse una cuenta en: https://cloudinary.com/users/register/free
+
+y luego de loguearse en su nueva cuenta las credenciales aparecen en la página de inicio de la siguiente manera: 
+
+![cloudinary credentials](https://user-images.githubusercontent.com/81385234/116566108-d84b0a00-a8dc-11eb-8ea3-efa5e1c18092.jpg)
+
+* Estas son las credenciales que deben copiar en el archivo .env, cada una en su correspondiente variable.
 
 * Notese que CLOUD_NAME y CLOUD_API_SECRET no necesitan comillas (' '), mientras que CLOUD_API_KEY si las necesita.
 
@@ -165,9 +171,14 @@ Nuestros enpoints serán:
 
 * Tendremos además la posibilidad de CREAR un usuario y contraseña y loguearnos con estas credenciales. Al loguearnos (mediante un POST) el sistema nos devolvera un TOKEN de autenticación, el cual utilizaremos para así tener permisos para, por ejemplo, CREAR, MODIFICAR o DESTRUIR nuevos registros. La duración por default de éste token es de 24hs. Pasadas las 24hs, el token será inservible y deberemos utilizar uno nuevo, el cual generaremos volviendo a loguearnos con nuestra cuenta.
 
-* POST localhost:3000/api/v1/signin -> para loguearnos(con imágen de ejemplo de un login, lo enviamos en formato RAW) 
+* POST localhost:3000/api/v1/auth/signin -> para loguearnos y obtener nuestro TOKEN(con imágen de ejemplo de un login, lo enviamos en formato RAW) 
 
 ![SIGN IN Con POST para obtener TOKEN](https://user-images.githubusercontent.com/81385234/115798053-b79a2600-a3ab-11eb-830f-3a68f4ea508d.jpg) 
+
+* POST localhost:3000/api/v1/auth/signup -> para registrarnos para poder después loguearnos
+
+![POST EXITOSO Auth localhost](https://user-images.githubusercontent.com/81385234/116563088-15fa6380-a8da-11eb-85bf-81f63d2c7e6c.jpg)
+
 
 * A la hora de realizar un request a nuestra API el cual requiera de autenticación, deberemos enviar cómo Headers "Content-Type" -> "application/json" y nuestro token JWT de autorización. Authorization -> 'Bearer nuestro_token'
 ![GET estando autenticado (con bearer con token en el header)](https://user-images.githubusercontent.com/81385234/115798962-d994a800-a3ad-11eb-862c-3c8953d02328.jpg)
@@ -193,6 +204,21 @@ Para testear los endpoints de la api, lo comentaremos para desactivarlo.
 * ### localhost:3000/api/v1/studios/1/characters/1
 
 ![GET Detalles character](https://user-images.githubusercontent.com/81385234/115895873-41d89d80-a431-11eb-924b-e59ddcf62a1e.jpg)
+
+* Por ultimo, podemos también ver(GET) los géneros que existen o crear nuevos géneros (POST) en:
+
+* ### localhost:3000/api/v1/genres
+
+![GET EXITOSO genres localhost](https://user-images.githubusercontent.com/81385234/116564039-ff084100-a8da-11eb-86bd-3352152b6ed7.jpg)
+
+Y para ver las películas y series de un género en especifico.
+
+* ### localhost:3000/api/v1/genres/:genre_id
+
+![GET EXITOSO genres detalle localhost](https://user-images.githubusercontent.com/81385234/116564083-092a3f80-a8db-11eb-8f17-475c51549769.jpg)
+
+
+
 
 
 
