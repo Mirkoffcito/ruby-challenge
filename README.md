@@ -2,6 +2,10 @@
 
 API diseñada en ruby on rails, utilizando POSTGRESQL cómo base de datos, y Cloudinary cómo servidor para subir las imágenes.
 
+## Actualmente tengo a la API hosteada en HEROKU! Por lo cual fines de testearse, en POSTMAN puede utilizarse la dirección https://ancient-eyrie-25380.herokuapp.com/ en lugar de " localhost:3000 " y realizarse todos los debidos requests (POST, GET, UPDATE, DELETE). Los endpoints serán entonces iguales. Por ejemplo: 
+
+* ### https://ancient-eyrie-25380.herokuapp.com/api/v1/studios  O  https://ancient-eyrie-25380.herokuapp.com/api/v1/studios/1/movies
+
 ## IMPORTANTE: Si lo que se desea es probar la API en su propio entorno, deberá configurar su propia base de datos postgres en /config/database.yml, realizar un rails db:setup para realizar el setup de su base de datos y una migración inicial rails db:migrate.
 
 ## Deberán además crear un archivo .env en la carpeta raíz de la API, donde incluiran sus credenciales de Cloudinary y el NOMBRE y USUARIO de postgres con el siguiente formato(el nombre de usuario de postgres por default es " postgres " sin las comillas):
