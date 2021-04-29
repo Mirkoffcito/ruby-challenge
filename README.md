@@ -2,7 +2,7 @@
 
 API diseñada en ruby on rails, utilizando POSTGRESQL cómo base de datos, y Cloudinary cómo servidor para subir las imágenes.
 
-## Actualmente tengo a la API hosteada en HEROKU! Por lo cual fines de testearse, en POSTMAN puede utilizarse la dirección https://ancient-eyrie-25380.herokuapp.com/ en lugar de " localhost:3000 " y realizarse todos los debidos requests (POST, GET, UPDATE, DELETE). Los endpoints serán entonces iguales. Por ejemplo: 
+### Actualmente tengo a la API hosteada en HEROKU! Por lo cual fines de testearse, en POSTMAN puede utilizarse la dirección https://ancient-eyrie-25380.herokuapp.com/ en lugar de " localhost:3000 " y realizarse todos los debidos requests (POST, GET, UPDATE, DELETE). Los endpoints serán entonces iguales. Por ejemplo: 
 
 * ### https://ancient-eyrie-25380.herokuapp.com/api/v1/studios  O  https://ancient-eyrie-25380.herokuapp.com/api/v1/studios/1/movies
 
