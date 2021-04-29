@@ -1,6 +1,6 @@
 class Api::V1::GenresController < ApplicationController
   #before_action :authenticate_user, only: [:create, :update, :destroy]
-  before_action :set_genre, only: [:destroy, :show]
+  before_action :set_genre, only: [:destroy, :show, :update]
 
   has_scope :by_name
 
@@ -29,6 +29,15 @@ class Api::V1::GenresController < ApplicationController
   # DELETE /genres/1
   def destroy
     @genre.destroy
+  end
+
+  # UPDATE /genres/1
+  def update
+    if @genre.update(genre_params)
+        render json: GenreRepresenter.new(@genre).as_json
+    else
+        render json: @genre.errors, status: :unprocessable_entity
+    end
   end
 
   private

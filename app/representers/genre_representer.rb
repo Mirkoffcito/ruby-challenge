@@ -10,13 +10,21 @@ class GenreRepresenter
             genre_movies:
             begin
                 genre.movies.map do |movie|
-                    movie.title
+                    {
+                    movie_id: movie.id,
+                    movie_title: movie.title,
+                    movie_image: movie.image_url
+                }
                 end
             end,
             genre_series:
             begin
                 genre.seriees.map do |serie|
-                    serie.title
+                    {
+                    serie_id: serie.id,
+                    serie_title: serie.title,
+                    serie_image: serie.image_url
+                }
                 end
             end
         }

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
               resources :seriees
               resources :characters
           end
-          resources :genres, only: [:index, :show, :create, :destroy]
+          resources :genres #api/v1/genres
       end
   end
 end
