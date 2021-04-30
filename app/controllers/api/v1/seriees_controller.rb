@@ -1,5 +1,5 @@
 class Api::V1::SerieesController < ApplicationController
-    #before_action :authenticate_user, only: [:create, :update, :destroy]
+    before_action :authenticate_user
     before_action :get_studio
     before_action :set_serie, only: [:show, :update, :destroy]
     before_action :order_params

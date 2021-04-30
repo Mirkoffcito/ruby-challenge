@@ -1,5 +1,5 @@
 class Api::V1::MoviesController < ApplicationController
-    #before_action :authenticate_user, only: [:create, :update, :destroy]
+    before_action :authenticate_user, only: [:create, :update, :destroy]
     before_action :get_studio
     before_action :set_movie, only: [:show, :update, :destroy]
     before_action :order_params
