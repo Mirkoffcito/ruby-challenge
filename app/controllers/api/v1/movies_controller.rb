@@ -38,6 +38,10 @@ class Api::V1::MoviesController < ApplicationController
         end
     end
 
+    # DELETE /studios/1
+    def destroy
+        @movie.destroy
+    end
 
     private
 

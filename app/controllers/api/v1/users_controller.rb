@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
       if current_user # para acceder acá, debo haberle pasado el token vía header, con Content type -> app/json y Authorization->Bearer token
         render json: UserRepresenter.new(current_user).as_json
       else
-        render json: "NO SE ENCUENTRA AUTENTICADO"
+        render json: "NO SE ENCUENTRA AUTENTICADO", status: 401
       end
     end
   
